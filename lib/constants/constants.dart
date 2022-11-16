@@ -1,3 +1,5 @@
+// ignore_for_file: constant_identifier_names
+
 class Constants {
 
   static const APIKEY = '3e099b93bef64b5d9fdadea154bf1f4a';
