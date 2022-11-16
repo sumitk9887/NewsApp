@@ -61,14 +61,28 @@ class Details extends StatelessWidget {
                     Row(
                       children: [
                         Expanded(
-                          child: Text(
-                            newsController.articles[index].author.toString(),
-                            textAlign: TextAlign.start,
-                            style: GoogleFonts.robotoSlab(
-                              color: const Color(0xffbababa),
-                              fontSize: 20.sp,
-                            ),
-                          ),
+                          child: newsController.articles[index].author
+                                      ?.toString() ==
+                                  null
+                              ? Text(
+                                  "NA",
+                                  textAlign: TextAlign.start,
+                                  maxLines: 3,
+                                  style: GoogleFonts.robotoSlab(
+                                    color: const Color(0xffbababa),
+                                    fontSize: 20.sp,
+                                  ),
+                                )
+                              : Text(
+                                  newsController.articles[index].author
+                                      .toString(),
+                                  textAlign: TextAlign.start,
+                                  maxLines: 3,
+                                  style: GoogleFonts.robotoSlab(
+                                    color: const Color(0xffbababa),
+                                    fontSize: 20.sp,
+                                  ),
+                                ),
                         ),
                         const SizedBox(
                           width: 18,
@@ -106,6 +120,3 @@ class Details extends StatelessWidget {
     );
   }
 }
-
-
-

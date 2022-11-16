@@ -88,17 +88,34 @@ class Headline extends StatelessWidget {
                                   Row(
                                     children: [
                                       Expanded(
-                                        child: Text(
-                                          _newsController.articles[index].author
-                                              .toString(),
-                                          maxLines: 1,
-                                          textAlign: TextAlign.start,
-                                          style: GoogleFonts.robotoSlab(
-                                            fontWeight: FontWeight.bold,
-                                            color: const Color(0xffbababa),
-                                            fontSize: 12.sp,
-                                          ),
-                                        ),
+                                        child: _newsController
+                                                    .articles[index].author
+                                                    ?.toString() ==
+                                                null
+                                            ? Text(
+                                                "NA",
+                                                maxLines: 1,
+                                                textAlign: TextAlign.start,
+                                                style: GoogleFonts.robotoSlab(
+                                                  fontWeight: FontWeight.bold,
+                                                  color:
+                                                      const Color(0xffbababa),
+                                                  fontSize: 12.sp,
+                                                ),
+                                              )
+                                            : Text(
+                                                _newsController
+                                                    .articles[index].author
+                                                    .toString(),
+                                                maxLines: 1,
+                                                textAlign: TextAlign.start,
+                                                style: GoogleFonts.robotoSlab(
+                                                  fontWeight: FontWeight.bold,
+                                                  color:
+                                                      const Color(0xffbababa),
+                                                  fontSize: 12.sp,
+                                                ),
+                                              ),
                                       ),
                                       SizedBox(
                                         width: 18,
