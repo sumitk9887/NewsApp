@@ -5,6 +5,7 @@ import 'package:news_app/controllers/news_controller.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:intl/intl.dart';
+import 'package:news_app/view/info_panel.dart';
 
 class Details extends StatelessWidget {
   final NewsController newsController;
@@ -20,7 +21,6 @@ class Details extends StatelessWidget {
         body: Stack(
           children: <Widget>[
             ClipRRect(
-                // borderRadius: BorderRadius.circular(10),
                 child: Image.network(
               newsController.articles[index].urlToImage.toString(),
               height: MediaQuery.of(context).size.height,
@@ -31,25 +31,11 @@ class Details extends StatelessWidget {
               height: MediaQuery.of(context).size.height,
               decoration: BoxDecoration(
                 color: Colors.black45.withOpacity(0.4),
-                // borderRadius: BorderRadius.circular(10)
               ),
             ),
-            Positioned(
-               top: 9,
-              left: 5,
-              child: Container(
-                decoration:
-                    const BoxDecoration(color: Colors.black54 , shape:BoxShape.circle),
-                child: IconButton(
-                  iconSize: 31.50,
-                  icon: const Icon(Icons.arrow_back_outlined),
-                  color: const Color(0xfff2f2f2),
-                  hoverColor: Colors.black,
-                  onPressed: () {
-                    Navigator.pop(context);
-                  },
-                ),
-              ),
+            InfoPanel(
+              newsController: newsController,
+              index: index,
             ),
             Positioned(
               bottom: 9,
