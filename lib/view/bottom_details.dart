@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_typing_uninitialized_variables
+
 import 'package:flutter/material.dart';
 import 'package:news_app/controllers/news_controller.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -89,6 +91,6 @@ class BottomDetails extends StatelessWidget {
             ),
           ],
         ));
-    ;
+    
   }
 }

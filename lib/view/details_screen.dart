@@ -21,15 +21,17 @@ class Details extends StatelessWidget {
           children: <Widget>[
             ClipRRect(
                 child: Image.network(
-              newsController.articles[index].urlToImage.toString(),
-              height: MediaQuery.of(context).size.height,
-              width: MediaQuery.of(context).size.width,
-              fit: BoxFit.cover,
-            )),
+                            newsController.articles[index].urlToImage.toString(),
+                            height: MediaQuery.of(context).size.height,
+                            width: MediaQuery.of(context).size.width,
+                            fit: BoxFit.fill,
+                 
+                          )),
             Container(
               height: MediaQuery.of(context).size.height,
               decoration: BoxDecoration(
                 color: Colors.black45.withOpacity(0.4),
+                
               ),
             ),
             InfoPanel(

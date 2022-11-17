@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:news_app/controllers/news_controller.dart';
+import 'package:news_app/service/news_service.dart';
 import 'package:news_app/view/details_screen.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
@@ -11,6 +12,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 class Headline extends StatelessWidget {
   Headline({super.key});
   final NewsController _newsController = Get.put(NewsController());
+  NewsWebService news = Get.find();
+    
   @override
   Widget build(BuildContext context) {
     ScreenUtil.init(context);

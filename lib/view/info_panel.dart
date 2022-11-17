@@ -1,9 +1,7 @@
-// ignore_for_file: deprecated_member_use
+// ignore_for_file: deprecated_member_use, prefer_typing_uninitialized_variables
 
 import 'package:flutter/material.dart';
-import 'package:http/http.dart';
 import 'package:news_app/controllers/news_controller.dart';
-import 'package:url_launcher/link.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class InfoPanel extends StatelessWidget {
@@ -44,7 +42,6 @@ class InfoPanel extends StatelessWidget {
                       enableDomStorage: true,
                       webOnlyWindowName: '_self');
                 } else {
-                  print("The action is not supported");
                 }
               },
             ),
