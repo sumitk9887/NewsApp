@@ -10,7 +10,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class Headline extends StatelessWidget {
   Headline({super.key});
-  final NewsController _newsController = Get.put(NewsController());
+  final NewsController? _newsController = Get.put(NewsController());
+
   @override
   Widget build(BuildContext context) {
     ScreenUtil.init(context);
@@ -24,12 +25,12 @@ class Headline extends StatelessWidget {
                 fontWeight: FontWeight.bold, fontSize: 29.sp)),
         centerTitle: true,
       ),
-      body: Obx(() => _newsController.isLoading.value
+      body: Obx(() => _newsController!.isLoading.value
           ? const Center(
               child: CircularProgressIndicator(),
             )
           : ListView.builder(
-              itemCount: _newsController.articles.length,
+              itemCount: _newsController!.articles.length,
               physics: const BouncingScrollPhysics(),
               itemBuilder: (context, index) {
                 return Padding(
@@ -41,7 +42,7 @@ class Headline extends StatelessWidget {
                         MaterialPageRoute(
                             builder: (context) => Details(
                                   index: index,
-                                  newsController: _newsController,
+                                  newsController: _newsController!,
                                 )),
                       );
                     },
@@ -49,17 +50,26 @@ class Headline extends StatelessWidget {
                       children: <Widget>[
                         ClipRRect(
                             borderRadius: BorderRadius.circular(10),
-                            child: Image.network(
-                              _newsController.articles[index].urlToImage
-                                  .toString(),
-                              height: 200,
-                              width: MediaQuery.of(context).size.width,
-                              fit: BoxFit.cover,
-                            )),
+                            child: _newsController!.articles[index].urlToImage
+                                        .toString() ==
+                                    "null"
+                                ? Image.asset(
+                                    "assets/1.png",
+                                    height: 200,
+                                    width: MediaQuery.of(context).size.width,
+                                    fit: BoxFit.cover,
+                                  )
+                                : Image.network(
+                                    _newsController!.articles[index].urlToImage
+                                        .toString(),
+                                    height: 200,
+                                    width: MediaQuery.of(context).size.width,
+                                    fit: BoxFit.cover,
+                                  )),
                         Container(
                           height: 200,
                           decoration: BoxDecoration(
-                              color: Colors.black45.withOpacity(0.4),
+                              color: Colors.black45.withOpacity(0.6),
                               borderRadius: BorderRadius.circular(10)),
                         ),
                         Positioned(
@@ -73,7 +83,7 @@ class Headline extends StatelessWidget {
                                   Padding(
                                     padding: const EdgeInsets.only(right: 30),
                                     child: Text(
-                                        _newsController.articles[index].title
+                                        _newsController!.articles[index].title
                                             .toString(),
                                         textAlign: TextAlign.start,
                                         maxLines: 3,
@@ -88,7 +98,7 @@ class Headline extends StatelessWidget {
                                   Row(
                                     children: [
                                       Expanded(
-                                        child: _newsController
+                                        child: _newsController!
                                                     .articles[index].author
                                                     ?.toString() ==
                                                 null
@@ -104,7 +114,7 @@ class Headline extends StatelessWidget {
                                                 ),
                                               )
                                             : Text(
-                                                _newsController
+                                                _newsController!
                                                     .articles[index].author
                                                     .toString(),
                                                 maxLines: 1,
@@ -125,7 +135,7 @@ class Headline extends StatelessWidget {
                                             const EdgeInsets.only(right: 35),
                                         child: Text(
                                           DateFormat("yyyy-MM-dd").format(
-                                              DateTime.parse(_newsController
+                                              DateTime.parse(_newsController!
                                                   .articles[index].publishedAt
                                                   .toString())),
                                           style: GoogleFonts.robotoSlab(
