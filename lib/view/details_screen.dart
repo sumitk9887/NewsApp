@@ -20,24 +20,24 @@ class Details extends StatelessWidget {
         body: Stack(
           children: <Widget>[
             ClipRRect(
-                child: newsController.articles[index].urlToImage.toString()=="null"? Image.asset(
-                            "assets/1.png",
-                            height: MediaQuery.of(context).size.height,
-                            width: MediaQuery.of(context).size.width,
-                            fit: BoxFit.fill,
-                 
-                          ):Image.network(
-                            newsController.articles[index].urlToImage.toString(),
-                            height: MediaQuery.of(context).size.height,
-                            width: MediaQuery.of(context).size.width,
-                            fit: BoxFit.fill,
-                 
-                          )),
+                child: newsController.articles[index].urlToImage.toString() ==
+                        "null"
+                    ? Image.asset(
+                        "assets/1.png",
+                        height: MediaQuery.of(context).size.height,
+                        width: MediaQuery.of(context).size.width,
+                        fit: BoxFit.fill,
+                      )
+                    : Image.network(
+                        newsController.articles[index].urlToImage.toString(),
+                        height: MediaQuery.of(context).size.height,
+                        width: MediaQuery.of(context).size.width,
+                        fit: BoxFit.fill,
+                      )),
             Container(
               height: MediaQuery.of(context).size.height,
               decoration: BoxDecoration(
                 color: Colors.black45.withOpacity(0.6),
-                
               ),
             ),
             InfoPanel(
@@ -45,10 +45,12 @@ class Details extends StatelessWidget {
               index: index,
             ),
             Positioned(
-              bottom: 9,
-              left: 5,
-              child: BottomDetails(newsController: newsController,index: index,)
-            ),
+                bottom: 9,
+                left: 5,
+                child: BottomDetails(
+                  newsController: newsController,
+                  index: index,
+                )),
           ],
         ),
       ),
