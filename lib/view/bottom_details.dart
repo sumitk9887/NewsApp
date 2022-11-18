@@ -80,8 +80,15 @@ class BottomDetails extends StatelessWidget {
             ),
             Padding(
               padding: const EdgeInsets.all(3),
-              child: Text(
+              child:newsController.articles[index].description.toString()!="null"? Text(
                 newsController.articles[index].description.toString(),
+                textAlign: TextAlign.start,
+                style: GoogleFonts.robotoSlab(
+                  color: const Color(0xffbababa),
+                  fontSize: 14.sp,
+                ),
+              ):Text(
+                "Click On View More",
                 textAlign: TextAlign.start,
                 style: GoogleFonts.robotoSlab(
                   color: const Color(0xffbababa),
