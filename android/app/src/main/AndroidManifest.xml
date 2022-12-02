@@ -15,7 +15,7 @@
   </intent>
 </queries>
    <application
-        android:label="Pace News"
+        android:label="News Today"
         android:usesCleartextTraffic="true"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
